@@ -52,4 +52,4 @@ $ docker-compose up -d
 - Key: file
 - Value: select a file from your computer (sample on project-folder/product.pdf)
 
-![Read PDF barcodes](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/readbarcode.png "Read PDF Barcodes")
+![Read PDF barcodes](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/readbarcodepdf.png "Read PDF Barcodes")
