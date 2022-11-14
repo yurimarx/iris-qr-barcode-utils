@@ -34,13 +34,22 @@ $ docker-compose up -d
 ![Write barcode](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/writebarcode.png "Write Bar code")
 
 
-5. Use Postman to read a barcode value (try EAN 128 type - the project has a sample on project-folder/code128.png): 
+5. Use Postman to read a barcode value from an image (try EAN 128 type - the project has a sample on project-folder/code128.png): 
 
 - Method: POST
 - URL: http://localhost:52773/iris-qrbarcode/qrbarcodefromimage
 - Body: form-data
 - Key: file
-- Value: select a file from your computer
+- Value: select a file from your computer (sample on project-folder/code128.png)
 
-![Read barcode](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/readbarcode.png "Read Barcode")
+![Read Image barcode](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/readbarcode.png "Read Image Barcode")
 
+6. Use Postman to read a barcode value from a PDF (try a PDF with barcode and qrcode - the project has a sample on project-folder/product.pdf): 
+
+- Method: POST
+- URL: http://localhost:52773/iris-qrbarcode/qrbarcodefrompdf
+- Body: form-data
+- Key: file
+- Value: select a file from your computer (sample on project-folder/product.pdf)
+
+![Read PDF barcodes](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/readbarcode.png "Read PDF Barcodes")

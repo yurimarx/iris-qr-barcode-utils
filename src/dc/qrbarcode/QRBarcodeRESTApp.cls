@@ -22,6 +22,10 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <!-- Read QRcode and Barcode from image -->
 <Route Url="/qrbarcodefromimage" Method="POST" Call="GetQRBarcodeFromImage" />
 
+<!-- Read QRcode and Barcode from PDF -->
+<Route Url="/qrbarcodefrompdf" Method="POST" Call="GetQRBarcodeFromPDF" />
+
+
 <!-- Write QRcode and Barcodes to image -->
 <Route Url="/writeqrbarcodetoimage/:number/:imagename" Method="GET" Call="WriteBarcodeToImage" />
 
@@ -44,16 +48,6 @@ ClassMethod WriteBarcodeToImage(number As %Integer, imagename As %String) As %St
   Quit sc
 }
 
-ClassMethod TestImage(Image As %String) As %Status
-{
-  Write ##class(dc.qrbarcode.QRBarcodeService).ReadQRBarcodeFromImage("/opt/irisbuild/images/image.jpg")
-}
-
-ClassMethod TestPDF(Image As %String) As %Status
-{
-  Write ##class(dc.qrbarcode.QRBarcodeService).ReadQRBarcodeFromPDF("/opt/irisbuild/images/barcode.pdf")
-}
-
 /// Read QRcode and Barcode from image
 ClassMethod GetQRBarcodeFromImage() As %Status
 {
@@ -66,6 +60,32 @@ ClassMethod GetQRBarcodeFromImage() As %Status
       set tSC=destination.CopyFrom(source) //reader open the file
       set Image=destination.%Save()
       Set Response = ##class(dc.qrbarcode.QRBarcodeService).ReadQRBarcodeFromImage(Filename)
+      Set %response.Status = 200 
+      Set %response.Headers("Access-Control-Allow-Origin")="*"
+      Write Response
+      //Write Filename
+      Return $$$OK
+    } Catch err {
+      write !, "Error name: ", ?20, err.Name,
+          !, "Error code: ", ?20, err.Code,
+          !, "Error location: ", ?20, err.Location,
+          !, "Additional data: ", ?20, err.Data, !
+      Return $$$NOTOK
+  }
+}
+
+/// Read QRcode and Barcode from PDF
+ClassMethod GetQRBarcodeFromPDF() As %Status
+{
+    Try {
+      Set info = {}
+      Set source = %request.GetMimeData("file")
+      Set destination=##class(%Stream.FileBinary).%New()
+      Set Filename = "/opt/irisbuild/images/"_source.FileName
+      Set destination.Filename = Filename
+      set tSC=destination.CopyFrom(source) //reader open the file
+      set Image=destination.%Save()
+      Set Response = ##class(dc.qrbarcode.QRBarcodeService).ReadQRBarcodeFromPDF(Filename)
       Set %response.Status = 200 
       Set %response.Headers("Access-Control-Allow-Origin")="*"
       Write Response
