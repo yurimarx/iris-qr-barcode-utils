@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "af783bba-5142-46dd-808d-6c8155a1b510",
+		"name": "barcode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Barcode from image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/projetos/isc/iris-qr-barcode-utils/code128.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:52773/iris-qrbarcode/qrbarcodefromimage",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"iris-qrbarcode",
+						"qrbarcodefromimage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Write barcode image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52773/iris-qrbarcode/writeqrbarcodetoimage/1234567891234/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"iris-qrbarcode",
+						"writeqrbarcodetoimage",
+						"1234567891234",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Barcode from PDF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/projetos/isc/iris-qr-barcode-utils/product.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:52773/iris-qrbarcode/qrbarcodefrompdf",
+					"host": [
+						"localhost"
+					],
+					"port": "52773",
+					"path": [
+						"iris-qrbarcode",
+						"qrbarcodefrompdf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

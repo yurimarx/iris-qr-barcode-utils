@@ -27,6 +27,7 @@ $ docker-compose up -d
 ```
 
 4. Use Postman (or other REST Client) to Write a barcode to a value:
+<i><b>P.S.: you can import the postman sample requests from: https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/barcode.postman_collection.json</b></i>
 
 - Method: GET
 - URL: http://localhost:52773/iris-qrbarcode/writeqrbarcodetoimage/1234567891234/test (template is: /writeqrbarcodetoimage/barcode number/image name)
