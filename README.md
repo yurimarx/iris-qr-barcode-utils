@@ -29,8 +29,8 @@ $ docker-compose up -d
 
 4. Use Postman (or other REST Client) to Write a barcode to a value:
 
-![Write barcode](https://github.com/yurimarx/predict-diseases/raw/master/writebarcode.png "Write Bar code")
+![Write barcode](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/writebarcode.png "Write Bar code")
 
 5. Use Postman to read a barcode value (try EAN 128 type - the project has a sample on <project-folder>/code128.png): 
-![Read barcode](https://github.com/yurimarx/predict-diseases/raw/master/readbarcode.png "Read Barcode")
+![Read barcode](https://github.com/yurimarx/iris-qr-barcode-utils/raw/main/readbarcode.png "Read Barcode")
 
