@@ -6,7 +6,6 @@ Read and write QR and Barcodes using InterSystems IRIS and Python
 ```
 zpm "install iris-qr-barcode-utils"
 ```
-2. Access Disease Predictor UI: http://localhost:52773/disease-predictor/index.html
 
 ## Installation using Docker Compose
 1. Clone/git pull the repo into any local directory
